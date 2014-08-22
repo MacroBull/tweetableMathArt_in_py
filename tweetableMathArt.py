@@ -34,11 +34,11 @@ class Artist():
 		return (_sq(cos(atan2(j-512,i-512)/2+2*acos(-1)/3))*255)
 
 	def draw(self):
-		for i in xrange(HEI):
-			for j in xrange(WID):
-				self.img[i,j,0] = int(self.BL(i,j)) & 255
-				self.img[i,j,1] = int(self.GR(i,j)) & 255
+		for i in xrange(self.HEI):
+			for j in xrange(self.WID):
 				self.img[i,j,2] = int(self.RD(i,j)) & 255
+				self.img[i,j,1] = int(self.GR(i,j)) & 255
+				self.img[i,j,0] = int(self.BL(i,j)) & 255
 
 		cv2.imshow(self.title, self.img)
 
@@ -53,16 +53,16 @@ if __name__ == "__main__":
 
 #	from tweetableMathArtist import *
 
-	a = HueSpin()
-	a.draw()
+#	a = HueSpin()
+#	a.draw()
+#
+#	a = Martin_Buuttner()
+#	a.draw()
+#
+#	a = Manuel_Kasten()
+#	a.draw()
 
-	a = Martin_Buuttner()
-	a.draw()
-
-	a = Manuel_Kasten()
-	a.draw()
-
-	a = githubphagocyte()
+	a = ReflectedWaves()
 	a.draw()
 
 	import cv2
